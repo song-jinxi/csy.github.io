@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="小兔鲜儿官网，致力于打造全球最大的食品、生鲜电商购物平台。">
+    <meta name="keywords" content="小兔鲜儿,食品,生鲜,服装,家电,电商,购物">
+    <title>小兔鲜儿-新鲜、惠民、快捷！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .wrapper {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 快捷导航 shortcut */
+        .shortcut {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .shortcut ul {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        
+        .shortcut a {
+            color: #fff;
+        }
+        
+        .shortcut a:hover {
+            color: #27ba9b;
+        }
+        
+        /* 头部 header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+        
+        .logo h1 a {
+            font-size: 28px;
+            font-weight: bold;
+            color: #27ba9b;
+        }
+        
+        .nav ul {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 15px 0;
+        }
+        
+        .nav a:hover {
+            color: #27ba9b;
+        }
+        
+        .search-cart {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #27ba9b;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 5px 15px;
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            width: 180px;
+            padding: 5px 0;
+        }
+        
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #27ba9b;
+        }
+        
+        .cart {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart img {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .cart-num {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e26237;
+            color: #fff;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* banner区域 */
+        .banner {
+            display: flex;
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .banner-left {
+            width: 240px;
+            background-color: #1b1b1b;
+            color: #fff;
+            padding: 15px 0;
+        }
+        
+        .banner-left ul {
+            list-style: none;
+        }
+        
+        .banner-left ul li {
+            padding: 10px 20px;
+        }
+        
+        .banner-left ul li:hover {
+            background-color: #27ba9b;
+        }
+        
+        .banner-left ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .banner-right {
+            flex: 1;
+            background: url('tupian/banner1.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .banner-content {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .banner-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .banner-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .banner-btn {
+            display: inline-block;
+            background-color: #27ba9b;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* 新鲜好物 goods */
+        .goods {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+  
+        }
+        .title-left {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* 调整标题和分类列表的间距 */
+        }
+        .title h3 {
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+            padding-left: 15px;
+            margin: 0;
+        }
+        
+        .title h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 20px;
+            width: 4px;
+            background-color: #27ba9b;
+            border-radius: 2px;
+        }
+        
+        .title p {
+            color: #999;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        
+        .title .all {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .bd, .recommend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .bd li, .recommend li {
+            width: calc(25% - 15px);
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .bd li:hover, .recommend li:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .bd img, .recommend img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        
+        .price {
+            padding: 18px;
+         
+        }
+        
+        .price p:first-child {
+            font-size: 18px;
+            /* margin-bottom: 1px; 减少间距 */
+            height: 42px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-align: center;
+            line-height: 1.3; /* 调整行高 */
+        
+        }
+
+        .price p:last-child {
+            color: rgb(125, 121, 114);
+            font-size: 17px;
+            text-align: center;
+            margin: 0; /* 移除默认边距 */
+            padding-top: 1px; /* 如果需要可以微调顶部间距 */
+        }
+        
+        /* 热门品牌 brand */
+        .brand {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .brand ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .brand li {
+            width: calc(20% - 12px);
+            text-align: center;
+        }
+        
+        .brand img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        /* 生鲜 fresh */
+        .fresh {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .fresh .title ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .fresh .title ul li a {
+            color: #666;
+        }
+        
+        .fresh .title ul li a:hover {
+            color: #27ba9b;
+        }
+        
+        .content {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .left {
+            width: 240px;
+        }
+        
+        .left img {
+            width: 100%;
+            height: 610px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .right {
+            flex: 1;
+        }
+        
+        .right ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .right li {
+            width: calc(25% - 15px);
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s;
+            /* height: 410px; */
+        }
+        
+        .right li:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .right li img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            height: 200px;
+        }
+        
+        .right li a {
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.4;
+            height: 80px;
+        }
+        
+        .right li span {
+            display: block;
+            padding: 0 10px 10px;
+            color: #e26237;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        /* 最新专题 topic */
+        .topic {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .topic ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .topic li {
+            width: calc(33.33% - 14px);
+            position: relative;
+        }
+        
+        .topic img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        /* 专题交互元素样式 */
+        .topic .interact {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            color: #999;
+            font-size: 14px;
+        }
+        .topic .interact span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* 页脚 footer */
+        /* 服务模块 - 左右排列（完全居中版） */
+        .service {
+            display: flex;
+            justify-content: center; /* 水平方向居中（子项整体居中） */
+            align-items: center; /* 垂直方向居中（子项整体居中） */
+            gap: 120px; /* 增大服务项之间的间距，避免拥挤 */
+            margin-bottom: 40px;
+            padding: 40px 0; /* 增加上下内边距，给内容足够垂直空间（关键） */
+            border-bottom: 1px solid #eee; /* 分隔线 */
+            /* background-color: #fff; 可选：添加背景色，更清晰看到居中效果 */
+        }
+        .service-item {
+            display: flex;
+            align-items: center; /* 图标与文字自身垂直居中 */
+            gap: 15px; /* 图标与文字间距（适配大尺寸） */
+        }
+        .service-icon {
+            width: 60px; /* 适配大图标尺寸 */
+            height: 60px; /* 与宽度一致，保持圆形 */
+            border-radius: 50%;
+            background-color: #f0f9f6;
+            display: flex;
+            align-items: center; /* 图标内部符号居中 */
+            justify-content: center; /* 图标内部符号居中 */
+            color: #27ba9b;
+            font-size: 45px; /* 图标符号大小 */
+        }
+        .service-text {
+            font-size: 30px;
+            color: #333;
+            font-weight: 500; /* 可选：加粗文字，更醒目 */
+        }
+        
+        /* 帮助中心与二维码 - 左右排版 */
+        .help-container {
+            display: flex; /* 横向排列 */
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .help {
+            display: flex;
+            gap: 30px; /* 各栏目间距 */
+        }
+        .help dl {
+            width: 125px; /* 固定宽度确保对齐 */
+        }
+        .help dt {
+            font-weight: bold;
+            margin-bottom: 27px;
+            color: #333;
+            font-size: 18px;
+      
+    
+        }
+        .help dd {
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+        .help a {
+            color: #666;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .help a:hover {
+            color: #27ba9b;
+        }
+        
+        /* 二维码区域 - 右侧排列 */
+        .qrcode {
+            display: flex;
+            gap: 60px; /* 增大两个二维码间距，避免拥挤 */
+            align-items: flex-start; /* 让两个二维码项顶部对齐（更规整） */
+            padding: 10px 0; /* 上下留少量间距，与左侧帮助中心视觉平衡 */
+        }
+        .qrcode-item {
+            text-align: center; /* 文字水平居中 */
+            width: 140px; /* 固定宽度，确保两个二维码项对齐（关键） */
+        }
+        .qrcode-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover; /* 确保图片不变形 */
+            margin-bottom: 12px; /* 增大图片与文字的间距，上下排版更清晰 */
+            display: block; /* 消除图片默认inline的多余空隙 */
+            margin-left: auto; /* 图片水平居中（兼容极端情况） */
+            margin-right: auto;
+        }
+        .qrcode-item span {
+            font-size: 16px; /* 增大文字，与二维码尺寸适配 */
+            color: #333; /* 加深文字颜色，更醒目 */
+            display: block; /* 确保文字独占一行，严格上下排版 */
+            line-height: 1.4; /* 优化文字行高，避免拥挤 */
+        }
+        
+        .copyright {
+            text-align: center;
+            color: #999;
+            font-size: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .copyright p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 快捷导航 shortcut -->
+    <div class="shortcut">
+        <div class="wrapper">
+            <ul>
+                <li><a href="#">请先登录</a></li>
+                <li><a href="#">免费注册</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">会员中心</a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">在线客服</a></li>
+                <li><a href="#">手机版</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="wrapper">
+        <!-- 头部 header -->
+        <div class="header">
+            <!-- logo区域 -->
+            <div class="logo">
+                <h1><a href="#">小兔鲜儿</a></h1>
+            </div>
+            <!-- 导航区域 nav -->
+            <div class="nav">
+                <ul>
+                    <li><a href="#">25216950509</a></li>
+                    <li><a href="#">陈思源</a></li>
+                    <li><a href="#">美食</a></li>
+                    <li><a href="#">餐厨</a></li>
+                    <li><a href="#">电器</a></li>
+                    <li><a href="#">家居</a></li>
+                    <li><a href="#">洗护</a></li>
+                    <li><a href="#">孕婴</a></li>
+                    <li><a href="#">服装</a></li>
+                </ul>
+            </div>
+            <!-- 搜索区域 search -->
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="搜一搜">
+                    <button class="search-btn">搜索</button>
+                </div>
+                <div class="cart">
+                    <img src="tupian/home5.png" alt="购物车">
+                    <div class="cart-num">22</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- banner区域 -->
+        <div class="banner">
+            <div class="banner-left">
+                <ul>
+                    <li><a href="#">生鲜果蔬 水果 蔬菜 <span>></span></a></li>
+                    <li><a href="#">美食推荐 面包 干果 <span>></span></a></li>
+                    <li><a href="#">数码电子 手机 电脑 <span>></span></a></li>
+                    <li><a href="#">家庭电器 电视 冰箱 <span>></span></a></li>
+                    <li><a href="#">厨房用品 厨房电器 餐具 <span>></span></a></li>
+                    <li><a href="#">居家生活 床品 四件套 被枕 <span>></span></a></li>
+                    <li><a href="#">洗护美妆 洗发 洁面 美妆 <span>></span></a></li>
+                    <li><a href="#">孕婴用品 奶粉 玩具 服装 <span>></span></a></li>
+                    <li><a href="#">服饰穿搭 女装 男装 <span>></span></a></li>
+                    <li><a href="#">日用杂货 户外 图书 <span>></span></a></li>
+                </ul>
+            </div>
+            <div class="banner-right">
+            </div>
+        </div>
+
+        <!-- 新鲜好物 goods -->
+        <div class="goods">
+            <!-- title区域 -->
+            <div class="title">
+                <div>
+                    <h3>新鲜好物</h3>
+                    <p>新鲜出炉 品质靠谱</p>
+                </div>
+                <a class="all" href="#">查看全部 ></a>
+            </div>
+            <!-- 内容区域 bd -->
+            <ul class="bd">
+                <li>
+                    <img src="tupian/goods1.png" alt="KN95级莫兰迪色防护口罩">
+                    <div class="price">
+                        <p><a href="#">KN95级莫兰迪色防护口罩</a></p>
+                        <p>￥79</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/goods2.png" alt="紫檀外独板三层普洱茶盒">
+                    <div class="price">
+                        <p><a href="#">紫檀外独板三层普洱茶盒</a></p>
+                        <p>￥566</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/goods3.png" alt="法拉蒙高颜值记事本可定制">
+                    <div class="price">
+                        <p><a href="#">法拉蒙高颜值记事本可定制</a></p>
+                        <p>￥58</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/goods4.png" alt="科技布布艺沙发">
+                    <div class="price">
+                        <p><a href="#">科技布布艺沙发</a></p>
+                        <p>￥3579</p>
+                    </div>
+                </li>
+            </ul>
+            <!-- title区域 -->
+            <div class="title">
+                <div>
+                    <h3>人气推荐</h3>
+                    <p>人气爆款 不容错过</p>
+                </div>
+                <a class="all" href="#">查看全部 ></a>
+            </div>
+            <!-- 内容区域 recommend -->
+            <ul class="recommend">
+                <li>
+                    <img src="tupian/recommend1.png" alt="畅销好书">
+                    <div class="price">
+                        <p><a href="#">特惠推荐</a></p>
+                        <p>我猜得到 你的需要</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/recommend2.png" alt="电脑数码 镇店好物">
+                    <div class="price">
+                        <p><a href="#">爆款推荐</a></p>
+                        <p>人气好物推荐</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/recommend3.png" alt="益企中秋节">
+                    <div class="price">
+                        <p><a href="#">节日礼品一战买全</a></p>
+                        <p>编辑尽心推荐整理</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/kitchen2.png" alt="鲜花园艺馆">
+                    <div class="price">
+                        <p><a href="#">鲜花园艺</a></p>
+                        <p>给生活增加仪式感</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 热门品牌 brand -->
+        <div class="brand">
+            <!-- title区域 -->
+            <div class="title">
+                <div>
+                    <h3>热门品牌</h3>
+                    <p>国际经典 品质认证</p>
+                </div>
+                <a class="all" href="#">查看全部 ></a>
+            </div>
+            <ul>
+                <li><img src="tupian/hot1.png" alt="大减至高5折起"></li>
+                <li><img src="tupian/hot2.png" alt="夏季爆款钜惠"></li>
+                <li><img src="tupian/hot3.png" alt="全场1件7.5折"></li>
+                <li><img src="tupian/hot4.png" alt="2件8折3件7折"></li>
+                <li><img src="tupian/hot5.png" alt="到手低至5折"></li>
+            </ul>
+        </div>
+
+        <!-- 生鲜 fresh -->
+        <div class="fresh">
+            <!-- title区域 -->
+            <div class="title">
+                <h3>生鲜</h3>
+                <ul>
+                    <li><a href="#">热门</a></li>
+                    <li><a href="#">蔬菜</a></li>
+                    <li><a href="#">肉禽蛋</a></li>
+                    <li><a href="#">水果</a></li>
+                    <li><a href="#">海鲜</a></li>
+                    <li><a href="#">零食</a></li>
+                    <li><a href="#">饮料</a></li>
+                </ul>
+                <a class="all" href="#">查看全部 ></a>
+            </div>
+            <!-- 生鲜区域 -->
+            <div class="content">
+                <div class="left">
+                    <img src="tupian/fresh_left.png" alt="生鲜特色">
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>
+                            <img src="tupian/fresh1.png" alt="双味千层，手抓饼烤肉组合">
+                            <a href="#">双味千层，手抓饼烤肉组合240g/袋 4片装<br>加热即食</a>
+                            <span>￥89.99</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh2.png" alt="云南甘蔗慢熬红糖馒头">
+                            <a href="#">云南甘蔗慢熬红糖馒头220g/袋 5个装<br>加热即食</a>
+                            <span>￥9.99</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh3.png" alt="日式风味小圆饼">
+                            <a href="#">日式风味小圆饼<br>圆形【海盐味】<br>糖果零食</a>
+                            <span>￥588.00</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh4.png" alt="全麦奶油浓香小面包">
+                            <a href="#">全麦奶油浓香小面包<br>50g*12袋<br>美味西点</a>
+                            <span>￥69.00</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh5.png" alt="秘制外皮五福摩提大福点心">
+                            <a href="#">秘制外皮五福摩提大福点心150g/盒<br>美味西点</a>
+                            <span>￥39.99</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh7.png" alt="水果面膜韩国蜂蜜柚子茶">
+                            <a href="#">水果面膜韩国蜂蜜柚子茶560g/瓶<br>冲调饮品</a>
+                            <span>￥89.99</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh7.png" alt="浓情比利时巧克力礼盒">
+                            <a href="#">浓情比利时巧克力礼盒装205克/盒<br>糖果零食</a>
+                            <span>￥120.00</span>
+                        </li>
+                        <li>
+                            <img src="tupian/fresh8.png" alt="抹茶奶油小蛋糕礼盒">
+                            <a href="#">抹茶奶油小蛋糕礼盒装220克/盒<br>美味西点</a>
+                            <span>￥60.00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最新专题 topic -->
+        <div class="topic">
+            <!-- title区域 -->
+            <div class="title">
+                <h3>最新专题</h3>
+                <a class="all" href="#">查看全部 ></a>
+            </div>
+            <!-- 内容区域 -->
+            <ul>
+                <li>
+                    <img src="tupian/topic1.png" alt="专题1">
+                    <div class="interact">
+                        <span>❤ 1220</span>
+                        <span>👁️ 1800</span>
+                        <span>💬 246</span>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/topic2.png" alt="专题2">
+                    <div class="interact">
+                        <span>❤ 1220</span>
+                        <span>👁️ 1800</span>
+                        <span>💬 246</span>
+                    </div>
+                </li>
+                <li>
+                    <img src="tupian/topic3.png" alt="专题3">
+                    <div class="interact">
+                        <span>❤ 1220</span>
+                        <span>👁️ 1800</span>
+                        <span>💬 246</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 底部 footer -->
+    <div class="footer">
+        <div class="wrapper">
+            <!-- 服务模块（图标+文字左右排列） -->
+            <div class="service">
+                <div class="service-item">
+                    <div class="service-icon">¥</div>
+                    <div class="service-text">价格亲民</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🚚</div>
+                    <div class="service-text">物流快捷</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">质</div>
+                    <div class="service-text">品质新鲜</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">↩</div>
+                    <div class="service-text">售后无忧</div>
+                </div>
+            </div>
+
+            <!-- 帮助中心与二维码（左右排版） -->
+            <div class="help-container">
+                <!-- 左侧帮助中心 -->
+                <div class="help">
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd><a href="#">购物流程</a></dd>
+                        <dd><a href="#">支付方式</a></dd>
+                        <dd><a href="#">售后规则</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>配送方式</dt>
+                        <dd><a href="#">配送运费</a></dd>
+                        <dd><a href="#">配送范围</a></dd>
+                        <dd><a href="#">配送时间</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>关于我们</dt>
+                        <dd><a href="#">平台规则</a></dd>
+                        <dd><a href="#">联系我们</a></dd>
+                        <dd><a href="#">问题反馈</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>售后服务</dt>
+                        <dd><a href="#">售后政策</a></dd>
+                        <dd><a href="#">退款说明</a></dd>
+                        <dd><a href="#">取消订单</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>服务热线</dt>
+                        <dd><a href="#">在线客服</a></dd>
+                        <dd><a href="#">客服电话 400-0000-000</a></dd>
+                        <dd><a href="#">工作时间 周一至周日 8:00-18:00</a></dd>
+                    </dl>
+                </div>
+
+                <!-- 右侧二维码 -->
+                <div class="qrcode">
+                    <div class="qrcode-item">
+                        <img src="tupian/qrcode.png" alt="微信公众号">
+                        <span>微信公众号</span>
+                    </div>
+                    <div class="qrcode-item">
+                        <img src="tupian/app.png" alt="APP下载二维码">
+                        <span>APP下载二维码</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 版权信息 -->
+            <div class="copyright">
+                <p>
+                    <a href="#">关于我们</a> |
+                    <a href="#">帮助中心</a> |
+                    <a href="#">售后服务</a> |
+                    <a href="#">配送与验收</a> |
+                    <a href="#">商务合作</a> |
+                    <a href="#">搜索推荐</a>
+                </p>
+                <p>@CopyRight © 小兔鲜</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
